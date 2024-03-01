@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  if user
+    form(action='' method='POST')
+        label(for='password') Members Password
+        input(name='password' type='password')
+        button Join
+  else 
+    P Please sign in to an account first.
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

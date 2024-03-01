@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  if user
+    h1 WELCOME BACK #{user.name}
+    a(href="/home/messageboard") Messageboard <br>
+    a(href="/home/joinClub") Become a member <br>
+    a(href="/home/admin") Become an admin <br>
+    a(href="/log-out") LOG OUT
+  else
+    form(action="/log-in" method="POST")
+      label(for="username") Username 
+      input(name="username" placeholder="username" type="text") 
+      label(for="password") <br> Password 
+      input(name="password" type="password")
+      <br>
+      button Log In
+    h2 don't have an account?
+    a(href="/home/signUp") Sign up

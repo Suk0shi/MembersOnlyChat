@@ -1,0 +1,19 @@
+doctype html
+html
+  taskbar
+    div.logo
+      a(href="/home") FlipFlopForum
+    div
+      a(href="/home") Messageboard <br>
+      a(href="/home/joinClub") Become a member <br>
+      a(href="/home/admin") Become an admin <br>
+      if user 
+        a(href="/log-out") Log out
+      else 
+        a(href="/home/login") Log in / Sign up
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    div.content
+      block content
