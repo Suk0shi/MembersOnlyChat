@@ -4,15 +4,15 @@ block content
   h1= title
   if messages.length
     
-    if user
-      if user.membership || user.admin
-        ul
-          each message in messages
-            li
-              p #{message.user.name} (#{message.timestampFormatted}) 
-                  <br> #{message.text}
-              if user.admin 
-                  a(class="button" href=message.url+'/delete') X
+    
+    if user.membership || user.admin
+      ul
+        each message in messages
+          li
+            p #{message.user.name} (#{message.timestampFormatted}) 
+                <br> #{message.text}
+            if user.admin 
+                a(class="button" href=message.url+'/delete') X
     else
       ul
         each message in messages
