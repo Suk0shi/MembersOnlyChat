@@ -82,5 +82,22 @@ ul {
   padding: 0;
 }
 
+.warningMessage {
+  color: rgb(171, 0, 0);
+}
 
+.signUpForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.signUpForm button,
+.loginForm button {
+  grid-column: 1/3;
+}
+
+.loginForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 

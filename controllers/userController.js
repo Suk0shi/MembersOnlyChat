@@ -13,7 +13,8 @@ exports.login = asyncHandler(async (req, res, next) => {
   
     res.render("login", {
       title: "Login",
-      user: req.user
+      user: req.user, 
+      message: req.flash("error")[0],
     });
 });
 

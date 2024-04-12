@@ -9,12 +9,12 @@ block content
     a(href="/home/admin") Become an admin <br>
     a(href="/log-out") LOG OUT
   else
-    form(action="/log-in" method="POST")
-      label(for="username") Username 
+    h2(class="warningMessage")= message
+    form(action="/log-in" method="POST" class="loginForm")
+      label(for="username") Username (email)
       input(name="username" placeholder="username" type="text") 
-      label(for="password") <br> Password 
+      label(for="password") Password 
       input(name="password" type="password")
-      <br>
       button Log In
-    h2 don't have an account?
+    h2 Don't have an account?
     a(href="/home/signUp") Sign up

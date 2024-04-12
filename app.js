@@ -5,8 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const bcrypt = require("bcryptjs")
-const session = require("express-session")
+const bcrypt = require("bcryptjs");
+const flash = require("connect-flash");
+const session = require("express-session");
 require('dotenv').config();
 
 var indexRouter = require('./routes/index');
@@ -37,11 +38,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
 });
+
 
 app.use(session({ secret: "secret", resave: false, saveUninitialized: true }));
 app.use(passport.session());
@@ -50,6 +53,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/home', homeRouter);
+
+app.use((req, res, next) => {
+  res.locals.messages = req.flash();
+  next();
+});
 
 const User = require("./models/user");
 passport.use(
@@ -87,8 +95,8 @@ app.post(
   "/log-in",
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/",
-    failureMessage: true
+    failureRedirect: "/home/login",
+    failureFlash: true
   })
 );
 
