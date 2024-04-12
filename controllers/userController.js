@@ -92,7 +92,7 @@ exports.joinClub_post = [
     .isLength({ min: 1 })
     .escape()
     .custom((value, { req }) => {
-      return value === "1234";
+      return value === process.env.CLUB_PASSWORD;
     }),
   // Process request after validation and sanitization.
 
