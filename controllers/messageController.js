@@ -44,7 +44,7 @@ exports.message_post = [
       } else {
         // Data from form is valid. Save user.
         await message.save();
-        res.redirect("/home/messageboard");
+        res.redirect("/home");
       }
   })
 ];
