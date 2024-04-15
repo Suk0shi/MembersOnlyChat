@@ -2,6 +2,8 @@
 
 A messageboard application to practice Express with Pug.
 
+View live here: https://membersonlychat.adaptable.app
+
 Features:
 - Users have to make an account and sign in to send messages
 - Member users can see the author and date of messages
