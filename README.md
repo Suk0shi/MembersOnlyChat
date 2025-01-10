@@ -1,8 +1,8 @@
 # Members Only Chat 
 
-Note: The backend server is hosted on a platform with cold start times. As a result, it may take up to 50 seconds for the server to initialize after an extended period of inactivity.
-
 A messageboard application to practice Express with Pug.
+
+Note: The backend server is hosted on a platform with cold start times. As a result, it may take up to 50 seconds for the server to initialize after an extended period of inactivity.
 
 View live here: https://membersonlychat.adaptable.app
 
